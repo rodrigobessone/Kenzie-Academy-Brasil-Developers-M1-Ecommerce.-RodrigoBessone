@@ -38,8 +38,8 @@ function renderItems(data) {
         image.classList.add("image");
         image.src = data[i].img;
 
-        const category = document.createElement("button");
-        category.classList.add("button-tag");
+        const category = document.createElement("h3");
+        category.classList.add("h3-tag");
         category.innerText = data[i].tag;
 
         const title = document.createElement("h3");
@@ -237,25 +237,29 @@ document.addEventListener("click", function (e) {
 
 function renderItemsToCart(img, name, price) {
     const liCart = document.createElement("li");
-    liCart.classList.add("li-cart-item")
+    liCart.classList.add("li-cart-item");
+    const imgCart = document.createElement("img");
+    imgCart.src = img;
+    const divCart = document.createElement("div");
+    divCart.classList.add("container-cart");
     const h3Cart = document.createElement("h3");
     h3Cart.textContent = name;
     h3Cart.classList.add("h3-cart");
-    const imgCart = document.createElement("img");
-    imgCart.src = img;
     const priceCart = document.createElement("price");
     priceCart.classList.add("price-cart");
     priceCart.innerText = price;
     const buttonRemove = document.createElement("button");
     buttonRemove.classList.add("button-remove");
-    buttonRemove.textContent = "Remover";
+    buttonRemove.textContent = "Remover produto";
 
-    liCart.appendChild(h3Cart);
     liCart.appendChild(imgCart);
-    liCart.appendChild(priceCart);
-    liCart.appendChild(buttonRemove);
+    divCart.appendChild(h3Cart);
+    divCart.appendChild(priceCart);
+    divCart.appendChild(buttonRemove);
 
+    liCart.appendChild(divCart);
     cardAddCart.appendChild(liCart);
+
 }
 
 // A função updateTotalValue() atualiza o valor total do carrinho de compras em uma página da web. Ela seleciona os elementos 
