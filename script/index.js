@@ -189,7 +189,6 @@ let countQuantity = 0;
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains("add-cart")) {
         const itemToAdd = e.target.parentElement;
-        console.log(itemToAdd)
         emptyCart.classList.add("display-None");
         const card = e.target.parentElement;
         const imageCard = card.querySelector(".image").src;
@@ -202,17 +201,16 @@ document.addEventListener("click", function(e) {
         updateTotalValue()
 }})
 
-// Este código também adiciona um ouvinte de eventos "click" ao documento. Quando ocorre um clique em qualquer parte 
-// do documento, a função anônima é executada. Dentro da função, é verificado se o alvo do evento de clique tem a 
-// classe "button-remove". Se tiver, é obtido o elemento pai do botão clicado (que é a li do item do carrinho) e ele 
-// é removido da lista. Também é atualizado o contador de quantidade de itens e o valor exibido na tela. Em seguida, 
-// é verificado se a lista de itens do carrinho está vazia e, se estiver, a classe "display-None" é removida do 
-// elemento "emptyCart", o que faz com que a mensagem "carrinho vazio" seja exibida novamente. Por fim, a função 
-// "updateTotalValue" é chamada para atualizar o valor total do carrinho.
+// adiciona um listener de evento de clique (click) no documento e verifica se o alvo do evento de clique contém a 
+// classe "button-remove". Se o alvo contém a classe "button-remove", ele remove o elemento pai mais próximo que 
+// contém a classe .li-cart-item (usando o método closest()), atualiza o valor da variável countQuantity, atualiza 
+// o valor de um elemento quantity com a nova contagem, verifica se um elemento cardAddCart tem filhos e remove a 
+// classe "display-None" do elemento emptyCart se ele não tiver filhos, e chama a função updateTotalValue().
 
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("button-remove")) {
-        const liToRemove = e.target.parentElement;
+        const liToRemove = e.target.closest(".li-cart-item");
+        console.log(liToRemove)
         liToRemove.remove();
         countQuantity--;
         quantity.innerText = countQuantity;
@@ -224,16 +222,10 @@ document.addEventListener("click", function (e) {
 
 })
 
-// Este código é uma função chamada "renderItemsToCart" que cria elementos HTML dinamicamente e adiciona esses elementos 
-// a um carrinho de compras na página. A função recebe três parâmetros: "img", que é a URL da imagem do produto, "name", 
-// que é o nome do produto e "price", que é o preço do produto. A função começa criando um elemento "li" para representar 
-// o item do carrinho e adicionando a classe "li-cart-item" a esse elemento. Em seguida, são criados elementos "h3", "img" 
-// e "price" para representar o nome, imagem e preço do produto, respectivamente. O texto do nome e preço é definido usando 
-// "textContent" ou "innerText" e a URL da imagem é definida usando "src". As classes "h3-cart" e "price-cart" são 
-// adicionadas aos elementos "h3" e "price", respectivamente. Por fim, um botão "Remover" é criado usando um elemento "button",
-// adicionando a classe "button-remove" e definindo o texto do botão usando "textContent". Todos os elementos são anexados 
-// ao elemento "li" usando o método "appendChild" e, em seguida, o elemento "li" é adicionado ao carrinho de compras usando 
-// o objeto "cardAddCart".
+// A função renderItemsToCart cria um elemento <li> para representar um item do carrinho de compras. Nela são definidos 
+// a imagem, nome e preço do produto. Os elementos <img>, <div>, <h3>, <price> e <button> são criados com suas classes e 
+// valores textuais. Por fim, todos esses elementos são adicionados à árvore DOM aninhando-os e o elemento <li> é 
+// anexado ao elemento com a classe cardAddCart."
 
 function renderItemsToCart(img, name, price) {
     const liCart = document.createElement("li");
@@ -253,11 +245,11 @@ function renderItemsToCart(img, name, price) {
     buttonRemove.textContent = "Remover produto";
 
     liCart.appendChild(imgCart);
+    liCart.appendChild(divCart);
     divCart.appendChild(h3Cart);
     divCart.appendChild(priceCart);
     divCart.appendChild(buttonRemove);
 
-    liCart.appendChild(divCart);
     cardAddCart.appendChild(liCart);
 
 }
