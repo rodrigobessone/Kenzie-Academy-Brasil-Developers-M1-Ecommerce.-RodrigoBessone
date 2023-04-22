@@ -1,4 +1,4 @@
-#Read.me - Desenvolvimento de Layout de E-commerce com HTML, CSS e JavaScript
+# Read.me - Desenvolvimento de Layout de E-commerce com HTML, CSS e JavaScript
 
 Este projeto consiste na construção do layout de um e-commerce, utilizando HTML, CSS e Javascript. O desafio é criar os cards dos produtos, 
 seguindo um guia de estilo pré-definido. O tema pode ser definido pelo participante, como jogos, pet shop, perfumarias, entre outros.
@@ -13,14 +13,14 @@ seguindo um guia de estilo pré-definido. O tema pode ser definido pelo particip
 
 ## Tecnologias utilizadas
 
--HTML;
--CSS;
--Javascript.
+- HTML;
+- CSS;
+- Javascript.
 
 ## Como executar o projeto
 
 - Acesse o template do projeto e crie um repositório a partir dele;
- Faça o clone do repositório para sua máquina;
+- Faça o clone do repositório para sua máquina;
 - Realize a estilização dos cards de produtos na vitrine e no carrinho, conforme o guia de estilo;
 - Utilize o DOM para tornar os cards de produtos dinâmicos, criando-os e atribuindo-os à vitrine com suas respectivas informações;
 - Implemente o carrinho de compras com as funcionalidades de adicionar e remover produtos, contagem total dos itens e valor total da compra;
